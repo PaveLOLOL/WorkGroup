@@ -13,11 +13,11 @@ int main()
     guy.pushFront(10);
     guy.pushFront(15);
 
-    guy.removeAt(3);
     guy.insert(103,2);
 
 
     qDebug()<<guy[0];
+
 
     return 0;
 }

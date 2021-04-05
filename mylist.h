@@ -17,8 +17,8 @@ public:
     T popBack();
     T at(int index);
     T removeAt(int index);
-    void insert(T value, int index);
-    T& operator[](int index);
+    void insert(T value, int index); // Реализовать
+    T operator[](int index);
 
     class Node {
     public:
@@ -32,17 +32,14 @@ public:
 
     int count = 0;
     Node* firstNode = nullptr;
-    Node* getLastNode();   
+    Node* getLastNode();
 };
-
-
-
 
 template<class T>
 void MyList<T>::pushBack(T value) {
 
     if (value <0) {
-        throw std::out_of_range("Неверное значение");
+        throw std::invalid_argument("Введено неверное значение индекса");
     }
 
     Node* node = new Node(value);
@@ -59,7 +56,7 @@ template<class T>
 void MyList<T>::pushFront(T value) {
 
     if (value <0) {
-        throw std::out_of_range("Неверное значение");
+        throw std::out_of_range("Введено неверное значение индекса");
     }
 
     Node* node = new Node(value);
@@ -113,10 +110,10 @@ T MyList<T>::popBack() {
 template<typename T>
 T MyList<T>::at(int index) {
     if (!this->firstNode) {
-        throw std::out_of_range("Введено неверное значение индекса");
+        throw std::invalid_argument("Введено неверное значение индекса");
     }
     if (index > count - 1) {
-        throw std::out_of_range("Индекс превысил допустимое значение");
+        throw std::out_of_range("Индекс первысил допустимое значение");
     }
     int counter = 0;
     Node* cur = this->firstNode;
@@ -130,9 +127,9 @@ T MyList<T>::at(int index) {
     throw std::out_of_range("Введено неверное значение индекса");
 }
 
-template<class T>
-T& MyList<T>::operator[](int index) {
-
+template<typename T>
+T MyList<T>::operator[](int index){
+    return this->at(index);
 }
 
 template<class T>
