@@ -3,6 +3,7 @@
 #include <cstddef>
 #include <QDebug>
 #include <stdexcept>
+#include <string>
 
 template<typename T>
 class MyList {
@@ -19,6 +20,7 @@ public:
     T removeAt(int index);
     void insert(T value, int index); // Реализовать
     T operator[](int index);
+    T binary_search(T value);
 
     class Node {
     public:
@@ -131,6 +133,32 @@ template<typename T>
 T MyList<T>::operator[](int index){
     return this->at(index);
 }
+
+//template<typename T>
+//T MyList<T>::binary_search(T value) {
+//        int low = 0;
+//        int high = count-1;
+
+//        while (low <= high) {
+//            int mid = (low+high)/2;
+//            int guess = at(mid);// сейчас значение среденго индекса
+
+//            if (guess==value) {
+//                //qDebug()<<value;
+//                return at(mid);
+//            }
+
+//            if (guess>value) {
+//                high = mid -1;
+//                qDebug()<<at(mid);
+//            } else {
+//                low = mid+1;
+//                qDebug()<<at(mid);
+//            }
+//        }
+//        return 0;
+//}
+
 
 template<class T>
 T MyList<T>::removeAt(int index){

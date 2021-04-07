@@ -16,8 +16,8 @@ int main()
     guy.insert(103,2);
 
 
-    qDebug()<<guy[0];
-
+   qDebug()<<guy[0];
+//    guy.binary_search(103);
 
     return 0;
 }
