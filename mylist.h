@@ -20,7 +20,8 @@ public:
     T removeAt(int index);
     void insert(T value, int index); // Реализовать
     T operator[](int index);
-    T binary_search(T value);
+    void selectionSort ();
+    void showList();
 
     class Node {
     public:
@@ -130,12 +131,14 @@ T MyList<T>::at(int index) {
 }
 
 template<typename T>
-T MyList<T>::operator[](int index){
+T MyList<T>::operator[](int index) {
     return this->at(index);
 }
 
+
+
 //template<typename T>
-//T MyList<T>::binary_search(T value) {
+//bool MyList<T>::binary_search(T value) {
 //        int low = 0;
 //        int high = count-1;
 
@@ -145,15 +148,15 @@ T MyList<T>::operator[](int index){
 
 //            if (guess==value) {
 //                //qDebug()<<value;
-//                return at(mid);
+//                return true;
 //            }
 
 //            if (guess>value) {
 //                high = mid -1;
-//                qDebug()<<at(mid);
+//                return mid;
 //            } else {
 //                low = mid+1;
-//                qDebug()<<at(mid);
+//                return mid;
 //            }
 //        }
 //        return 0;
@@ -223,6 +226,36 @@ void MyList<T>::insert(T value, int index){
     cur->nextNode = newNode;
     this->count++;
     return;
+}
+
+template<typename T>
+void MyList<T>::selectionSort() {
+
+    int min = 0;
+    int buf = 0;
+
+    for (int i=0; i<count ; i++) {
+
+        min =i;
+        for (int j = i+1; j<count; j++) {
+//            min = (this[j]<this[min]) ? j : min;
+        }
+
+//        if(i!=min) {
+//            buf = this[i];
+//            this[i] =this[min];
+//            this[min] = buf;
+//        }
+    }
+    this->showList();
+}
+
+template<typename T>
+void MyList<T>::showList(){
+    for (int i = 0; i< count;i++) {
+        this->at(i);
+        qDebug()<< this->at(index);
+    }
 }
 
 template<class T>
